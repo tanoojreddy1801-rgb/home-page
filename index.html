@@ -151,7 +151,8 @@
       margin-top: 20px;
     }
 
-    .service-button {
+    .service-button,
+    button.service-button {
       min-height: 86px;
       padding: 16px;
       border: 1px solid rgba(197, 214, 238, 0.7);
@@ -168,6 +169,7 @@
       justify-content: space-between;
       gap: 12px;
       transition: transform 0.24s ease, box-shadow 0.24s ease, border-color 0.24s ease, background 0.24s ease;
+      font: inherit;
     }
 
     .service-button:hover,
@@ -178,6 +180,13 @@
       background:
         linear-gradient(180deg, rgba(255,255,255,0.98), rgba(239,247,255,0.94));
       outline: none;
+    }
+
+    .service-button.active {
+      border-color: rgba(91,141,239,0.78);
+      background:
+        linear-gradient(135deg, rgba(91,141,239,0.14), rgba(87,198,194,0.12)),
+        rgba(255,255,255,0.94);
     }
 
     .service-title {
@@ -215,6 +224,125 @@
       filter: brightness(1.03);
       border-color: rgba(91,141,239,0.65);
       outline: none;
+    }
+
+    .media-carousel {
+      margin-top: 22px;
+      border-radius: 22px;
+      overflow: hidden;
+      border: 1px solid rgba(197, 214, 238, 0.62);
+      background: linear-gradient(180deg, rgba(255,255,255,0.9), rgba(244,249,255,0.82));
+      box-shadow: var(--shadow-sm);
+    }
+
+    .carousel-stage {
+      position: relative;
+      aspect-ratio: 16 / 9;
+      min-height: 280px;
+      overflow: hidden;
+      background: rgba(238, 246, 255, 0.72);
+    }
+
+    .carousel-slide {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      transform: scale(1.035);
+      transition: opacity 0.72s ease, transform 0.9s cubic-bezier(.19,1,.22,1);
+    }
+
+    .carousel-slide.active {
+      opacity: 1;
+      transform: scale(1);
+      z-index: 1;
+    }
+
+    .carousel-slide img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+    }
+
+    .carousel-slide.logo-slide img {
+      object-fit: contain;
+      padding: clamp(28px, 7vw, 74px);
+      background:
+        radial-gradient(circle at 50% 42%, rgba(91,141,239,0.14), transparent 42%),
+        linear-gradient(135deg, rgba(255,255,255,0.96), rgba(240,248,255,0.86));
+    }
+
+    .carousel-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 14px;
+      padding: 14px 16px;
+    }
+
+    .carousel-copy {
+      min-width: 0;
+    }
+
+    .carousel-copy strong {
+      display: block;
+      color: var(--text);
+      font-size: 14px;
+      margin-bottom: 3px;
+    }
+
+    .carousel-copy span {
+      display: block;
+      color: var(--text-soft);
+      font-size: 12px;
+      line-height: 1.45;
+    }
+
+    .carousel-controls {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex: 0 0 auto;
+    }
+
+    .carousel-arrow,
+    .carousel-dot {
+      border: 1px solid rgba(197, 214, 238, 0.72);
+      background: rgba(255,255,255,0.82);
+      color: var(--text);
+      box-shadow: var(--shadow-sm);
+      cursor: pointer;
+      transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+    }
+
+    .carousel-arrow {
+      width: 38px;
+      height: 38px;
+      border-radius: 13px;
+      font-size: 18px;
+      line-height: 1;
+    }
+
+    .carousel-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      padding: 0;
+    }
+
+    .carousel-arrow:hover,
+    .carousel-arrow:focus-visible,
+    .carousel-dot:hover,
+    .carousel-dot:focus-visible {
+      transform: translateY(-2px);
+      border-color: rgba(91,141,239,0.66);
+      outline: none;
+    }
+
+    .carousel-dot.active {
+      background: var(--primary);
+      border-color: var(--primary);
+      transform: scale(1.18);
     }
 
     .slide-strip {
@@ -409,6 +537,13 @@
       .service-button {
         width: 100%;
       }
+      .carousel-stage {
+        min-height: 220px;
+      }
+      .carousel-bar {
+        align-items: flex-start;
+        flex-direction: column;
+      }
       h1 {
         font-size: 38px;
       }
@@ -421,27 +556,61 @@
       <div class="panel hero-copy">
         <div>
           <span class="eyebrow">Tax, GST and compliance assistance</span>
-          <h1>Practical tax support with clear guidance.</h1>
+          <h1>Invincibles Co Tax</h1>
           <p class="lead">
-            Choose the service you need and continue directly to the relevant Invincibles Co Tax page for ITR filing, Computax assistance, refund tracking, Income Tax Act updates, or client enquiry support.
+            Practical tax support with clear guidance. Choose the service you need and continue directly to the relevant Invincibles Co Tax page for ITR filing, Computax assistance, refund tracking, Income Tax Act updates, or client enquiry support.
           </p>
+          <div class="media-carousel" aria-label="Invincibles Co Tax image carousel">
+            <div class="carousel-stage">
+              <div class="carousel-slide logo-slide active">
+                <img src="./logo%201.jpeg" width="320" height="320" alt="Invincibles Co Tax logo">
+              </div>
+              <div class="carousel-slide">
+                <img src="./image1.jpg" width="615" height="372" alt="Tax and compliance service visual">
+              </div>
+              <div class="carousel-slide">
+                <img src="./image2.jpg" width="1000" height="600" alt="Income tax service visual">
+              </div>
+              <div class="carousel-slide">
+                <img src="./image3.jpg" width="1600" height="900" alt="Business compliance service visual">
+              </div>
+              <div class="carousel-slide">
+                <img src="./image4.jpg" width="1402" height="1122" alt="Client support service visual">
+              </div>
+            </div>
+            <div class="carousel-bar">
+              <div class="carousel-copy" aria-live="polite">
+                <strong id="carouselTitle">Invincibles Co Tax</strong>
+                <span id="carouselText">Focused tax, accounting, and compliance support for individuals and businesses.</span>
+              </div>
+              <div class="carousel-controls" aria-label="Carousel controls">
+                <button class="carousel-arrow" type="button" id="carouselPrev" aria-label="Previous image">&#8249;</button>
+                <button class="carousel-dot active" type="button" data-carousel-dot="0" aria-label="Show logo"></button>
+                <button class="carousel-dot" type="button" data-carousel-dot="1" aria-label="Show image 1"></button>
+                <button class="carousel-dot" type="button" data-carousel-dot="2" aria-label="Show image 2"></button>
+                <button class="carousel-dot" type="button" data-carousel-dot="3" aria-label="Show image 3"></button>
+                <button class="carousel-dot" type="button" data-carousel-dot="4" aria-label="Show image 4"></button>
+                <button class="carousel-arrow" type="button" id="carouselNext" aria-label="Next image">&#8250;</button>
+              </div>
+            </div>
+          </div>
           <div class="quick-grid" aria-label="Service page buttons">
-            <a class="service-button" href="https://www.invinciblescotax.info/viper" target="_top">
+            <button class="service-button" type="button" data-carousel-target="1">
               <span class="service-title">VIPER</span>
-              <span class="service-hint">Proceed to the VIPER page for tax workflow assistance and related client services.</span>
-            </a>
-            <a class="service-button" href="https://www.invinciblescotax.info/computax-invinciblescotax" target="_top">
+              <span class="service-hint">View the tax workflow highlight in the carousel above.</span>
+            </button>
+            <button class="service-button" type="button" data-carousel-target="2">
               <span class="service-title">Computax</span>
-              <span class="service-hint">Get support for Computax-related tax preparation and compliance requirements.</span>
-            </a>
-            <a class="service-button" href="https://www.invinciblescotax.info/refund-status-check" target="_top">
+              <span class="service-hint">View the Computax and tax preparation highlight in the carousel above.</span>
+            </button>
+            <button class="service-button" type="button" data-carousel-target="3">
               <span class="service-title">Refund Status</span>
-              <span class="service-hint">Check income tax refund status and understand the next steps clearly.</span>
-            </a>
-            <a class="service-button" href="https://www.invinciblescotax.info/client-enquiry-for-itr" target="_top">
+              <span class="service-hint">View the refund and compliance support highlight in the carousel above.</span>
+            </button>
+            <button class="service-button" type="button" data-carousel-target="4">
               <span class="service-title">ITR Enquiry</span>
-              <span class="service-hint">Share ITR-related details so the team can review your requirement properly.</span>
-            </a>
+              <span class="service-hint">View the client enquiry and assistance highlight in the carousel above.</span>
+            </button>
             <a class="service-button" href="https://www.invinciblescotax.info/whats-new-about-the-income-tax-act-2025" target="_top">
               <span class="service-title">Income Tax Act 2025</span>
               <span class="service-hint">Review key updates and client guidance on what is new in the Income Tax Act, 2025.</span>
@@ -602,6 +771,84 @@
   </main>
 
   <script>
+    const slides = document.querySelectorAll(".carousel-slide");
+    const dots = document.querySelectorAll(".carousel-dot");
+    const serviceButtons = document.querySelectorAll("[data-carousel-target]");
+    const carouselTitle = document.getElementById("carouselTitle");
+    const carouselText = document.getElementById("carouselText");
+    const carouselPrev = document.getElementById("carouselPrev");
+    const carouselNext = document.getElementById("carouselNext");
+    const carouselDetails = [
+      {
+        title: "Invincibles Co Tax",
+        text: "Focused tax, accounting, and compliance support for individuals and businesses."
+      },
+      {
+        title: "VIPER",
+        text: "A quick visual reference for tax workflow assistance and related client services."
+      },
+      {
+        title: "Computax",
+        text: "Support for tax preparation, Computax assistance, and compliance requirements."
+      },
+      {
+        title: "Refund Status",
+        text: "Guidance for checking income tax refund status and planning the next steps."
+      },
+      {
+        title: "ITR Enquiry",
+        text: "Client enquiry support for ITR review, documentation, and follow-up."
+      }
+    ];
+    let activeSlide = 0;
+    let carouselTimer;
+
+    function showSlide(index) {
+      activeSlide = (index + slides.length) % slides.length;
+      slides.forEach((slide, slideIndex) => {
+        slide.classList.toggle("active", slideIndex === activeSlide);
+      });
+      dots.forEach((dot, dotIndex) => {
+        dot.classList.toggle("active", dotIndex === activeSlide);
+      });
+      serviceButtons.forEach((button) => {
+        button.classList.toggle("active", Number(button.dataset.carouselTarget) === activeSlide);
+      });
+      carouselTitle.textContent = carouselDetails[activeSlide].title;
+      carouselText.textContent = carouselDetails[activeSlide].text;
+    }
+
+    function restartCarousel() {
+      window.clearInterval(carouselTimer);
+      carouselTimer = window.setInterval(() => showSlide(activeSlide + 1), 4800);
+    }
+
+    dots.forEach((dot) => {
+      dot.addEventListener("click", () => {
+        showSlide(Number(dot.dataset.carouselDot));
+        restartCarousel();
+      });
+    });
+
+    serviceButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        showSlide(Number(button.dataset.carouselTarget));
+        restartCarousel();
+      });
+    });
+
+    carouselPrev.addEventListener("click", () => {
+      showSlide(activeSlide - 1);
+      restartCarousel();
+    });
+
+    carouselNext.addEventListener("click", () => {
+      showSlide(activeSlide + 1);
+      restartCarousel();
+    });
+
+    restartCarousel();
+
     const slideCards = document.querySelectorAll(".slide-card");
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
