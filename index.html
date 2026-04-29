@@ -87,8 +87,28 @@
 
     h1, h2, h3, h4, p { margin-top: 0; }
 
-    h1 {
+    .hero-heading {
+      display: flex;
+      align-items: center;
+      gap: 18px;
       margin-bottom: 14px;
+    }
+
+    .hero-logo {
+      width: clamp(58px, 8vw, 92px);
+      height: clamp(58px, 8vw, 92px);
+      border-radius: 24px;
+      object-fit: contain;
+      background: rgba(255, 255, 255, 0.72);
+      border: 1px solid rgba(197, 214, 238, 0.58);
+      box-shadow: var(--shadow-sm);
+      padding: 8px;
+      animation: logoFloat 4.8s ease-in-out infinite;
+      flex: 0 0 auto;
+    }
+
+    h1 {
+      margin-bottom: 0;
       font-size: clamp(34px, 6vw, 64px);
       line-height: 0.98;
       font-weight: 850;
@@ -516,6 +536,11 @@
       100% { box-shadow: var(--shadow-lg); }
     }
 
+    @keyframes logoFloat {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-5px); }
+    }
+
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
       *,
@@ -574,6 +599,14 @@
       h1 {
         font-size: 38px;
       }
+      .hero-heading {
+        gap: 12px;
+      }
+      .hero-logo {
+        width: 58px;
+        height: 58px;
+        border-radius: 18px;
+      }
     }
   </style>
 </head>
@@ -583,12 +616,14 @@
       <div class="panel hero-copy">
         <div>
           <span class="eyebrow">Tax, GST and compliance assistance</span>
-          <h1>Invincibles Co Tax</h1>
+          <div class="hero-heading">
+            <img class="hero-logo" src="./logo%20123.jpeg" width="92" height="92" alt="Invincibles Co Tax logo">
+            <h1>Invincibles Co Tax</h1>
+          </div>
           <p class="lead">
             Practical tax support with clear guidance for ITR filing, Computax assistance, refund tracking, Income Tax Act updates, and client enquiry support.
           </p>
-
-          <div class="quick-grid" aria-label="Service highlights">
+          <div class="quick-grid" aria-label="Service page buttons">
             <div class="service-card">
               <span class="service-title">VIPER</span>
               <span class="service-hint">Tax workflow assistance and related client services.</span>
@@ -610,7 +645,6 @@
               <span class="service-hint">Key updates and client guidance on what is new in the Income Tax Act, 2025.</span>
             </div>
           </div>
-
           <div class="media-carousel" aria-label="Invincibles Co Tax image carousel">
             <div class="carousel-stage">
               <div class="carousel-slide logo-slide active">
@@ -629,7 +663,6 @@
                 <img src="./image4.jpg" width="1402" height="1122" alt="Client support service visual">
               </div>
             </div>
-
             <div class="carousel-bar">
               <div class="carousel-copy" aria-live="polite">
                 <strong id="carouselTitle">Invincibles Co Tax</strong>
@@ -646,12 +679,10 @@
               </div>
             </div>
           </div>
-
           <p class="carousel-note">
             The image section is for general client awareness and visual updates.
           </p>
         </div>
-
         <button class="btn-secondary section-jump" type="button" onclick="document.getElementById('client-reference').scrollIntoView({ behavior: 'smooth' });">Explore our services</button>
       </div>
     </section>
@@ -670,7 +701,6 @@
             <div class="mini-kpi"><strong>Reliable</strong>Routine and critical matter assistance</div>
           </div>
         </div>
-
         <div class="panel">
           <h2>Our Services</h2>
           <div class="content-grid">
@@ -793,10 +823,10 @@
               <strong>Email</strong>
               support@invinciblescotax.info
             </div>
-            <div class="contact-card">
+            <a class="contact-card" href="https://wa.me/919010043298" target="_blank" rel="noopener noreferrer">
               <strong>Phone / WhatsApp</strong>
               +91 90100 43298
-            </div>
+            </a>
           </div>
           <p class="footer-note">
             Disclaimer: Invincibles Co Tax is a consultancy providing tax and accounting support services. The firm is not a Chartered Accountant firm. Services are rendered in accordance with applicable laws and professional guidelines.
@@ -835,21 +865,17 @@
         text: "Structured help for individuals, professionals, consultants, traders, and businesses."
       }
     ];
-
     let activeSlide = 0;
     let carouselTimer;
 
     function showSlide(index) {
       activeSlide = (index + slides.length) % slides.length;
-
       slides.forEach((slide, slideIndex) => {
         slide.classList.toggle("active", slideIndex === activeSlide);
       });
-
       dots.forEach((dot, dotIndex) => {
         dot.classList.toggle("active", dotIndex === activeSlide);
       });
-
       carouselTitle.textContent = carouselDetails[activeSlide].title;
       carouselText.textContent = carouselDetails[activeSlide].text;
     }
