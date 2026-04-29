@@ -25,9 +25,7 @@
 
     * { box-sizing: border-box; }
 
-    html {
-      scroll-behavior: smooth;
-    }
+    html { scroll-behavior: smooth; }
 
     body {
       margin: 0;
@@ -151,14 +149,12 @@
       margin-top: 20px;
     }
 
-    .service-button,
-    button.service-button {
+    .service-button {
       min-height: 86px;
       padding: 16px;
       border: 1px solid rgba(197, 214, 238, 0.7);
       border-radius: 18px;
-      background:
-        linear-gradient(180deg, rgba(255,255,255,0.92), rgba(247,251,255,0.84));
+      background: linear-gradient(180deg, rgba(255,255,255,0.92), rgba(247,251,255,0.84));
       color: var(--text);
       box-shadow: var(--shadow-sm);
       cursor: pointer;
@@ -177,8 +173,7 @@
       transform: translateY(-4px) scale(1.01);
       border-color: rgba(91,141,239,0.55);
       box-shadow: 0 18px 36px rgba(105, 145, 205, 0.18);
-      background:
-        linear-gradient(180deg, rgba(255,255,255,0.98), rgba(239,247,255,0.94));
+      background: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(239,247,255,0.94));
       outline: none;
     }
 
@@ -273,10 +268,6 @@
       padding: 14px 16px;
     }
 
-    .carousel-copy {
-      min-width: 0;
-    }
-
     .carousel-copy strong {
       display: block;
       color: var(--text);
@@ -321,15 +312,6 @@
       height: 10px;
       border-radius: 50%;
       padding: 0;
-    }
-
-    .carousel-arrow:hover,
-    .carousel-arrow:focus-visible,
-    .carousel-dot:hover,
-    .carousel-dot:focus-visible {
-      transform: translateY(-2px);
-      border-color: rgba(91,141,239,0.66);
-      outline: none;
     }
 
     .carousel-dot.active {
@@ -485,11 +467,6 @@
       margin-top: 18px;
     }
 
-    @keyframes shimmer {
-      0% { background-position: 0% center; }
-      100% { background-position: 200% center; }
-    }
-
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
       *,
@@ -499,6 +476,7 @@
         animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;
       }
+
       .slide-card,
       .slide-card:nth-child(even) {
         transform: none;
@@ -527,23 +505,28 @@
       .page-shell { padding: 16px 14px 28px; }
       .hero { min-height: auto; }
       .panel { padding: 18px; border-radius: 22px; }
+
       .quick-grid,
       .content-grid,
       .contact-grid,
       .mini-kpis {
         grid-template-columns: 1fr;
       }
+
       .btn-secondary,
       .service-button {
         width: 100%;
       }
+
       .carousel-stage {
         min-height: 220px;
       }
+
       .carousel-bar {
         align-items: flex-start;
         flex-direction: column;
       }
+
       h1 {
         font-size: 38px;
       }
@@ -560,51 +543,63 @@
           <p class="lead">
             Practical tax support with clear guidance. Choose the service you need and continue directly to the relevant Invincibles Co Tax page for ITR filing, Computax assistance, refund tracking, Income Tax Act updates, or client enquiry support.
           </p>
+
           <div class="quick-grid" aria-label="Service page buttons">
-            <a class="service-button" href="https://www.invinciblescotax.info/viper" target="_top">
+            <a class="service-button" href="https://www.invinciblescotax.info/viper" target="_top" onclick="window.top.location.href=this.href; return false;">
               <span class="service-title">VIPER</span>
               <span class="service-hint">Proceed to the VIPER page for tax workflow assistance and related client services.</span>
             </a>
-            <a class="service-button" href="https://www.invinciblescotax.info/computax-invinciblescotax" target="_top">
+
+            <a class="service-button" href="https://www.invinciblescotax.info/computax-invinciblescotax" target="_top" onclick="window.top.location.href=this.href; return false;">
               <span class="service-title">Computax</span>
               <span class="service-hint">Get support for Computax-related tax preparation and compliance requirements.</span>
             </a>
-            <a class="service-button" href="https://www.invinciblescotax.info/refund-status-check" target="_top">
+
+            <a class="service-button" href="https://www.invinciblescotax.info/refund-status-check" target="_top" onclick="window.top.location.href=this.href; return false;">
               <span class="service-title">Refund Status</span>
               <span class="service-hint">Check income tax refund status and understand the next steps clearly.</span>
             </a>
-            <a class="service-button" href="https://www.invinciblescotax.info/client-enquiry-for-itr" target="_top">
+
+            <a class="service-button" href="https://www.invinciblescotax.info/client-enquiry-for-itr" target="_top" onclick="window.top.location.href=this.href; return false;">
               <span class="service-title">ITR Enquiry</span>
               <span class="service-hint">Share ITR-related details so the team can review your requirement properly.</span>
             </a>
-            <a class="service-button" href="https://www.invinciblescotax.info/whats-new-about-the-income-tax-act-2025" target="_top">
+
+            <a class="service-button" href="https://www.invinciblescotax.info/whats-new-about-the-income-tax-act-2025" target="_top" onclick="window.top.location.href=this.href; return false;">
               <span class="service-title">Income Tax Act 2025</span>
               <span class="service-hint">Review key updates and client guidance on what is new in the Income Tax Act, 2025.</span>
             </a>
           </div>
+
           <div class="media-carousel" aria-label="Invincibles Co Tax image carousel">
             <div class="carousel-stage">
               <div class="carousel-slide logo-slide active">
                 <img src="./logo%201.jpeg" width="320" height="320" alt="Invincibles Co Tax logo">
               </div>
+
               <div class="carousel-slide">
                 <img src="./image1.jpg" width="615" height="372" alt="Tax and compliance service visual">
               </div>
+
               <div class="carousel-slide">
                 <img src="./image2.jpg" width="1000" height="600" alt="Income tax service visual">
               </div>
+
               <div class="carousel-slide">
                 <img src="./image3.jpg" width="1600" height="900" alt="Business compliance service visual">
               </div>
+
               <div class="carousel-slide">
                 <img src="./image4.jpg" width="1402" height="1122" alt="Client support service visual">
               </div>
             </div>
+
             <div class="carousel-bar">
               <div class="carousel-copy" aria-live="polite">
                 <strong id="carouselTitle">Invincibles Co Tax</strong>
                 <span id="carouselText">Focused tax, accounting, compliance, and business support for individuals and businesses.</span>
               </div>
+
               <div class="carousel-controls" aria-label="Carousel controls">
                 <button class="carousel-arrow" type="button" id="carouselPrev" aria-label="Previous image">&#8249;</button>
                 <button class="carousel-dot active" type="button" data-carousel-dot="0" aria-label="Show logo"></button>
@@ -616,10 +611,12 @@
               </div>
             </div>
           </div>
+
           <p class="carousel-note">
             The image section is for general client awareness and visual updates. Service buttons above redirect to their respective website pages.
           </p>
         </div>
+
         <a class="btn-secondary section-jump" href="#client-reference">Explore our services</a>
       </div>
     </section>
@@ -631,6 +628,7 @@
           <p>
             Invincibles Co Tax is a tax and accounting consultancy focused on delivering practical, accurate, and timely financial solutions for individuals and businesses.
           </p>
+
           <div class="mini-kpis" aria-label="Key service highlights">
             <div class="mini-kpi"><strong>Clear</strong>Communication without unnecessary complexity</div>
             <div class="mini-kpi"><strong>Timely</strong>Execution with attention to detail</div>
@@ -638,6 +636,7 @@
             <div class="mini-kpi"><strong>Reliable</strong>Routine and critical matter assistance</div>
           </div>
         </div>
+
         <div class="panel">
           <h2>Our Services</h2>
           <div class="content-grid">
@@ -650,6 +649,7 @@
                 <li>Tax planning and compliance assistance</li>
               </ul>
             </div>
+
             <div class="safe-box">
               <h3>GST Services</h3>
               <ul class="helper-list">
@@ -659,6 +659,7 @@
                 <li>Compliance review and support</li>
               </ul>
             </div>
+
             <div class="workflow-box">
               <h3>Accounting & Bookkeeping</h3>
               <ul class="helper-list">
@@ -667,6 +668,7 @@
                 <li>Periodic reporting and review</li>
               </ul>
             </div>
+
             <div class="info-box">
               <h3>Business & Compliance Support</h3>
               <ul class="helper-list">
@@ -686,20 +688,24 @@
             The engagement process is structured to keep client work accurate, efficient, and easy to follow from first review to continued support.
           </p>
         </div>
+
         <div class="panel">
           <div class="content-grid">
             <div class="workflow-box">
               <h3>1. Understand</h3>
               <p>We begin by understanding client requirements, objectives, documents, and the compliance context.</p>
             </div>
+
             <div class="workflow-box">
               <h3>2. Review</h3>
               <p>Documents are reviewed carefully so key issues, risks, and available options can be identified early.</p>
             </div>
+
             <div class="workflow-box">
               <h3>3. Execute</h3>
               <p>Compliance work is prepared and executed with precision, proper records, and clear communication.</p>
             </div>
+
             <div class="workflow-box">
               <h3>4. Support</h3>
               <p>Continued support and guidance are provided for routine follow-up and critical client matters.</p>
@@ -715,16 +721,19 @@
             Handling notices and compliance issues requires clarity, documentation, and proper representation.
           </p>
         </div>
+
         <div class="panel">
           <div class="content-grid">
             <div class="safe-box">
               <h3>Notice Review</h3>
               <p>We assist clients in reviewing notices and understanding the action required before preparing a response.</p>
             </div>
+
             <div class="safe-box">
               <h3>Structured Response</h3>
               <p>Responses are prepared in a structured and compliant manner with attention to the facts and records available.</p>
             </div>
+
             <div class="info-box">
               <h3>Who We Serve</h3>
               <ul class="helper-list">
@@ -734,6 +743,7 @@
                 <li>Traders and professionals</li>
               </ul>
             </div>
+
             <div class="info-box">
               <h3>Why Choose Us</h3>
               <ul class="helper-list">
@@ -754,17 +764,20 @@
             Get in touch to discuss your requirements or seek assistance with tax and compliance matters.
           </p>
         </div>
+
         <div class="panel">
           <div class="contact-grid">
             <a class="contact-card" href="mailto:support@invinciblescotax.info">
               <strong>Email</strong>
               support@invinciblescotax.info
             </a>
+
             <a class="contact-card" href="https://wa.me/919010043298">
               <strong>Phone / WhatsApp</strong>
               +91 90100 43298
             </a>
           </div>
+
           <p class="footer-note">
             Disclaimer: Invincibles Co Tax is a consultancy providing tax and accounting support services. The firm is not a Chartered Accountant firm. Services are rendered in accordance with applicable laws and professional guidelines.
           </p>
@@ -802,17 +815,21 @@
         text: "Structured help for individuals, professionals, consultants, traders, and businesses."
       }
     ];
+
     let activeSlide = 0;
     let carouselTimer;
 
     function showSlide(index) {
       activeSlide = (index + slides.length) % slides.length;
+
       slides.forEach((slide, slideIndex) => {
         slide.classList.toggle("active", slideIndex === activeSlide);
       });
+
       dots.forEach((dot, dotIndex) => {
         dot.classList.toggle("active", dotIndex === activeSlide);
       });
+
       carouselTitle.textContent = carouselDetails[activeSlide].title;
       carouselText.textContent = carouselDetails[activeSlide].text;
     }
