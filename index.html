@@ -182,13 +182,6 @@
       outline: none;
     }
 
-    .service-button.active {
-      border-color: rgba(91,141,239,0.78);
-      background:
-        linear-gradient(135deg, rgba(91,141,239,0.14), rgba(87,198,194,0.12)),
-        rgba(255,255,255,0.94);
-    }
-
     .service-title {
       font-size: 15px;
       font-weight: 800;
@@ -343,6 +336,13 @@
       background: var(--primary);
       border-color: var(--primary);
       transform: scale(1.18);
+    }
+
+    .carousel-note {
+      margin-top: 14px;
+      color: var(--text-soft);
+      font-size: 13px;
+      line-height: 1.6;
     }
 
     .slide-strip {
@@ -560,6 +560,28 @@
           <p class="lead">
             Practical tax support with clear guidance. Choose the service you need and continue directly to the relevant Invincibles Co Tax page for ITR filing, Computax assistance, refund tracking, Income Tax Act updates, or client enquiry support.
           </p>
+          <div class="quick-grid" aria-label="Service page buttons">
+            <a class="service-button" href="https://www.invinciblescotax.info/viper" target="_top">
+              <span class="service-title">VIPER</span>
+              <span class="service-hint">Proceed to the VIPER page for tax workflow assistance and related client services.</span>
+            </a>
+            <a class="service-button" href="https://www.invinciblescotax.info/computax-invinciblescotax" target="_top">
+              <span class="service-title">Computax</span>
+              <span class="service-hint">Get support for Computax-related tax preparation and compliance requirements.</span>
+            </a>
+            <a class="service-button" href="https://www.invinciblescotax.info/refund-status-check" target="_top">
+              <span class="service-title">Refund Status</span>
+              <span class="service-hint">Check income tax refund status and understand the next steps clearly.</span>
+            </a>
+            <a class="service-button" href="https://www.invinciblescotax.info/client-enquiry-for-itr" target="_top">
+              <span class="service-title">ITR Enquiry</span>
+              <span class="service-hint">Share ITR-related details so the team can review your requirement properly.</span>
+            </a>
+            <a class="service-button" href="https://www.invinciblescotax.info/whats-new-about-the-income-tax-act-2025" target="_top">
+              <span class="service-title">Income Tax Act 2025</span>
+              <span class="service-hint">Review key updates and client guidance on what is new in the Income Tax Act, 2025.</span>
+            </a>
+          </div>
           <div class="media-carousel" aria-label="Invincibles Co Tax image carousel">
             <div class="carousel-stage">
               <div class="carousel-slide logo-slide active">
@@ -581,7 +603,7 @@
             <div class="carousel-bar">
               <div class="carousel-copy" aria-live="polite">
                 <strong id="carouselTitle">Invincibles Co Tax</strong>
-                <span id="carouselText">Focused tax, accounting, and compliance support for individuals and businesses.</span>
+                <span id="carouselText">Focused tax, accounting, compliance, and business support for individuals and businesses.</span>
               </div>
               <div class="carousel-controls" aria-label="Carousel controls">
                 <button class="carousel-arrow" type="button" id="carouselPrev" aria-label="Previous image">&#8249;</button>
@@ -594,28 +616,9 @@
               </div>
             </div>
           </div>
-          <div class="quick-grid" aria-label="Service page buttons">
-            <button class="service-button" type="button" data-carousel-target="1">
-              <span class="service-title">VIPER</span>
-              <span class="service-hint">View the tax workflow highlight in the carousel above.</span>
-            </button>
-            <button class="service-button" type="button" data-carousel-target="2">
-              <span class="service-title">Computax</span>
-              <span class="service-hint">View the Computax and tax preparation highlight in the carousel above.</span>
-            </button>
-            <button class="service-button" type="button" data-carousel-target="3">
-              <span class="service-title">Refund Status</span>
-              <span class="service-hint">View the refund and compliance support highlight in the carousel above.</span>
-            </button>
-            <button class="service-button" type="button" data-carousel-target="4">
-              <span class="service-title">ITR Enquiry</span>
-              <span class="service-hint">View the client enquiry and assistance highlight in the carousel above.</span>
-            </button>
-            <a class="service-button" href="https://www.invinciblescotax.info/whats-new-about-the-income-tax-act-2025" target="_top">
-              <span class="service-title">Income Tax Act 2025</span>
-              <span class="service-hint">Review key updates and client guidance on what is new in the Income Tax Act, 2025.</span>
-            </a>
-          </div>
+          <p class="carousel-note">
+            The image section is for general client awareness and visual updates. Service buttons above redirect to their respective website pages.
+          </p>
         </div>
         <a class="btn-secondary section-jump" href="#client-reference">Explore our services</a>
       </div>
@@ -773,7 +776,6 @@
   <script>
     const slides = document.querySelectorAll(".carousel-slide");
     const dots = document.querySelectorAll(".carousel-dot");
-    const serviceButtons = document.querySelectorAll("[data-carousel-target]");
     const carouselTitle = document.getElementById("carouselTitle");
     const carouselText = document.getElementById("carouselText");
     const carouselPrev = document.getElementById("carouselPrev");
@@ -781,23 +783,23 @@
     const carouselDetails = [
       {
         title: "Invincibles Co Tax",
-        text: "Focused tax, accounting, and compliance support for individuals and businesses."
+        text: "Focused tax, accounting, compliance, and business support for individuals and businesses."
       },
       {
-        title: "VIPER",
-        text: "A quick visual reference for tax workflow assistance and related client services."
+        title: "Client Awareness",
+        text: "Helpful visuals and updates for tax, business, and compliance matters."
       },
       {
-        title: "Computax",
-        text: "Support for tax preparation, Computax assistance, and compliance requirements."
+        title: "Compliance Support",
+        text: "Practical assistance for routine filings, documentation, and regulatory responsibilities."
       },
       {
-        title: "Refund Status",
-        text: "Guidance for checking income tax refund status and planning the next steps."
+        title: "Business Guidance",
+        text: "Clear support for business registrations, records, advisory, and ongoing compliance."
       },
       {
-        title: "ITR Enquiry",
-        text: "Client enquiry support for ITR review, documentation, and follow-up."
+        title: "Professional Assistance",
+        text: "Structured help for individuals, professionals, consultants, traders, and businesses."
       }
     ];
     let activeSlide = 0;
@@ -811,9 +813,6 @@
       dots.forEach((dot, dotIndex) => {
         dot.classList.toggle("active", dotIndex === activeSlide);
       });
-      serviceButtons.forEach((button) => {
-        button.classList.toggle("active", Number(button.dataset.carouselTarget) === activeSlide);
-      });
       carouselTitle.textContent = carouselDetails[activeSlide].title;
       carouselText.textContent = carouselDetails[activeSlide].text;
     }
@@ -826,13 +825,6 @@
     dots.forEach((dot) => {
       dot.addEventListener("click", () => {
         showSlide(Number(dot.dataset.carouselDot));
-        restartCarousel();
-      });
-    });
-
-    serviceButtons.forEach((button) => {
-      button.addEventListener("click", () => {
-        showSlide(Number(button.dataset.carouselTarget));
         restartCarousel();
       });
     });
