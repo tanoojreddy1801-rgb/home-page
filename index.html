@@ -42,7 +42,12 @@
       overflow-x: hidden;
     }
 
+    img {
+      max-width: 100%;
+    }
+
     .page-shell {
+      width: 100%;
       max-width: 1220px;
       margin: 0 auto;
       padding: 30px 22px 44px;
@@ -51,13 +56,14 @@
     .hero {
       min-height: 78vh;
       display: grid;
-      grid-template-columns: 1fr;
+      grid-template-columns: minmax(0, 1fr);
       align-items: stretch;
       padding-top: 12px;
     }
 
     .panel {
       position: relative;
+      min-width: 0;
       background: var(--surface);
       backdrop-filter: blur(16px);
       border: 1px solid var(--line);
@@ -91,6 +97,7 @@
       display: flex;
       align-items: center;
       gap: 18px;
+      min-width: 0;
       margin-bottom: 14px;
     }
 
@@ -108,6 +115,7 @@
     }
 
     h1 {
+      min-width: 0;
       margin-bottom: 0;
       font-size: clamp(34px, 6vw, 64px);
       line-height: 0.98;
@@ -120,6 +128,7 @@
       background-clip: text;
       -webkit-background-clip: text;
       text-shadow: 0 14px 34px rgba(91, 141, 239, 0.16);
+      overflow-wrap: anywhere;
       animation: headlineFlow 6s linear infinite, headlineLift 1s cubic-bezier(.19,1,.22,1) both;
     }
 
@@ -149,6 +158,7 @@
     .eyebrow {
       display: inline-flex;
       width: fit-content;
+      max-width: 100%;
       align-items: center;
       gap: 8px;
       margin-bottom: 16px;
@@ -169,6 +179,7 @@
       border-radius: 50%;
       background: var(--success);
       box-shadow: 0 0 0 5px rgba(47, 141, 106, 0.12);
+      flex: 0 0 auto;
     }
 
     .quick-grid {
@@ -230,7 +241,8 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      white-space: nowrap;
+      white-space: normal;
+      text-align: center;
     }
 
     .btn-secondary:hover,
@@ -242,6 +254,7 @@
     }
 
     .media-carousel {
+      max-width: 100%;
       margin-top: 22px;
       border-radius: 22px;
       overflow: hidden;
@@ -316,8 +329,11 @@
     .carousel-controls {
       display: flex;
       align-items: center;
+      justify-content: flex-end;
+      flex-wrap: wrap;
       gap: 8px;
-      flex: 0 0 auto;
+      flex: 0 1 auto;
+      min-width: 0;
     }
 
     .carousel-arrow,
@@ -328,6 +344,7 @@
       box-shadow: var(--shadow-sm);
       cursor: pointer;
       transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+      flex: 0 0 auto;
     }
 
     .carousel-arrow {
@@ -437,6 +454,7 @@
     }
 
     .info-box, .safe-box, .workflow-box {
+      min-width: 0;
       padding: 16px;
       border-radius: 16px;
       background: rgba(255,255,255,0.7);
@@ -480,12 +498,14 @@
     }
 
     .contact-card {
+      min-width: 0;
       padding: 16px;
       border-radius: 18px;
       border: 1px solid rgba(197, 214, 238, 0.55);
       background: rgba(255,255,255,0.74);
       color: var(--text-soft);
       text-decoration: none;
+      overflow-wrap: anywhere;
       transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
     }
 
@@ -561,7 +581,7 @@
     @media (max-width: 980px) {
       .slide-card,
       .slide-card:nth-child(even) {
-        grid-template-columns: 1fr;
+        grid-template-columns: minmax(0, 1fr);
         transform: translateY(54px) scale(0.96);
       }
 
@@ -583,7 +603,7 @@
       .content-grid,
       .contact-grid,
       .mini-kpis {
-        grid-template-columns: 1fr;
+        grid-template-columns: minmax(0, 1fr);
       }
       .btn-secondary,
       .service-card {
@@ -596,8 +616,12 @@
         align-items: flex-start;
         flex-direction: column;
       }
+      .carousel-controls {
+        width: 100%;
+        justify-content: center;
+      }
       h1 {
-        font-size: 38px;
+        font-size: clamp(32px, 10vw, 38px);
       }
       .hero-heading {
         gap: 12px;
@@ -606,6 +630,98 @@
         width: 58px;
         height: 58px;
         border-radius: 18px;
+      }
+    }
+
+    @media (max-width: 430px) {
+      .page-shell {
+        padding: 12px 10px 24px;
+      }
+
+      .panel {
+        padding: 14px;
+        border-radius: 18px;
+      }
+
+      .hero-heading {
+        align-items: flex-start;
+      }
+
+      .hero-logo {
+        width: 50px;
+        height: 50px;
+        border-radius: 16px;
+        padding: 6px;
+      }
+
+      h1 {
+        font-size: clamp(28px, 10.5vw, 34px);
+        line-height: 1.04;
+      }
+
+      h2 {
+        font-size: 22px;
+      }
+
+      h3 {
+        font-size: 16px;
+      }
+
+      .lead {
+        font-size: 15px;
+        line-height: 1.62;
+      }
+
+      .eyebrow {
+        align-items: flex-start;
+        border-radius: 16px;
+        line-height: 1.35;
+      }
+
+      .media-carousel {
+        border-radius: 18px;
+      }
+
+      .carousel-stage {
+        aspect-ratio: 4 / 3;
+        min-height: 220px;
+      }
+
+      .carousel-slide.logo-slide img {
+        padding: 24px;
+      }
+
+      .carousel-bar {
+        gap: 12px;
+        padding: 12px;
+      }
+
+      .carousel-controls {
+        gap: 6px;
+      }
+
+      .carousel-arrow {
+        width: 34px;
+        height: 34px;
+        border-radius: 11px;
+      }
+
+      .carousel-dot {
+        width: 9px;
+        height: 9px;
+      }
+
+      .slide-strip {
+        gap: 18px;
+        margin-top: 18px;
+      }
+
+      .info-box,
+      .safe-box,
+      .workflow-box,
+      .contact-card,
+      .mini-kpi {
+        padding: 14px;
       }
     }
   </style>
